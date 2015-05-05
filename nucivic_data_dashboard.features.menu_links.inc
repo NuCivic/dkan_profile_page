@@ -71,7 +71,7 @@ function nucivic_data_dashboard_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => TRUE,
+      'alter' => FALSE,
       'identifier' => 'menu-command-center-menu_profile-settings:menutoken/5547e8fd0c1a4',
     ),
     'module' => 'menu',
