@@ -49,8 +49,8 @@ function nucivic_data_dashboard_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = 'Operations';
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = '<ul class="links inline">
-<li class="edit first"><a href="/node/[nid]/edit?destination=admin/content">edit</a></li>
-<li class="delete last"><a href="/node/[nid]/delete?destination=admin/content">delete</a></li>
+<li class="edit first"><a href="/node/[nid]/edit?destination=user">edit</a></li>
+<li class="delete last"><a href="/node/[nid]/delete?destination=user">delete</a></li>
 </ul>';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
