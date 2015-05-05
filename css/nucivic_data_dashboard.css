@@ -1,0 +1,11 @@
+@media (min-width: 992px) {
+  .nucivic-data-dashboard-user-info {
+    margin-top: -5px;
+  }
+}
+
+.nucivic-data-dashboard-user-info p {
+  font-size: 12px;
+  margin-bottom: 0px;
+  line-height: normal;
+}

@@ -1,0 +1,104 @@
+<?php
+/**
+ * @file
+ * Code for the NuCivic Data Dashboard feature.
+ */
+
+include_once 'nucivic_data_dashboard.features.inc';
+
+
+/**
+ * Implements hook_block_info().
+ */
+function nucivic_data_dashboard_block_info() {
+  $blocks = array();
+  $blocks['dashboard_user_summary'] = array(
+    'info' => t('Dashboard User Summary'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function nucivic_data_dashboard_block_view($delta = '') {
+  global $user;
+  $block = array();
+  $query = new EntityFieldQuery();
+
+  switch($delta) {
+    case 'dashboard_user_summary':
+      $profile_picture = theme_image(
+        array(
+          'path' => gravatar_get_gravatar($user->mail),
+          'width' => 60,
+          'height' => 60,
+          'attributes' => array(),
+        )
+      );
+      $menu_data = menu_tree('menu-command-center-menu');
+      $menu_data = nucivic_data_dashboard_remove_profile_menu_item($menu_data);
+
+      $menu = drupal_render($menu_data);
+      $html = theme('nucivic_data_dashboard_dashboard_user_summary', array(
+          'num_groups' => nucivic_data_dashboard_count_by_type('group'),
+          'num_dataset' => nucivic_data_dashboard_count_by_type('dataset'),
+          'name' => $user->name,
+          'since' => format_date($user->created, 'custom', 'm/d/Y'),
+          'profile_picture' => $profile_picture,
+          'menu' => $menu,
+        )
+      );
+      $block['subject'] = '';
+      $block['content'] =  array(
+        '#markup' => $html,
+        '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'nucivic_data_dashboard') . '/css/nucivic_data_dashboard.css',
+          ),
+        ),
+      );
+
+      break;
+  }
+  return $block;
+}
+
+function nucivic_data_dashboard_remove_profile_menu_item($menu_data){
+  foreach ($menu_data as $key => $menu_item) {
+    if(isset($menu_item['#href']) && $menu_item['#href'] === 'user'){
+      unset($menu_data[$key]);
+    };
+  }
+  return $menu_data;
+}
+
+/*
+ * Get number of nodes created by user
+ * of a particular content type.
+ */
+function nucivic_data_dashboard_count_by_type($type){
+  global $user;
+
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+  ->entityCondition('bundle', $type)
+  ->propertyCondition('uid', $user->uid)
+  ->count();
+
+  return $query->execute();
+}
+
+/*
+ * Implementation of hook_theme().
+ */
+function nucivic_data_dashboard_theme() {
+  return array(
+    'nucivic_data_dashboard_dashboard_user_summary' => array(
+      'arguments' => array(),
+      'template' => 'nucivic_data_dashboard_dashboard_user_summary',
+      'path' => drupal_get_path('module', 'nucivic_data_dashboard'),
+    )
+  );
+}
