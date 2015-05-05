@@ -27,7 +27,7 @@ function nucivic_data_dashboard_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -49,
     'customized' => 1,
   );
   // Exported menu link: menu-command-center-menu_groups:groups
@@ -47,7 +47,7 @@ function nucivic_data_dashboard_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -48,
     'customized' => 1,
   );
   // Exported menu link: menu-command-center-menu_profile-settings:menutoken/5547e8fd0c1a4
@@ -79,7 +79,27 @@ function nucivic_data_dashboard_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-command-center-menu_profile:user
+  $menu_links['menu-command-center-menu_profile:user'] = array(
+    'menu_name' => 'menu-command-center-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'Profile',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-command-center-menu_profile:user',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
     'customized' => 1,
   );
   // Exported menu link: menu-command-center-menu_site-preferences:admin/config/system/site-information
@@ -99,7 +119,7 @@ function nucivic_data_dashboard_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: menu-command-center-menu_visualizations:admin/structure/entity-type/visualization
@@ -119,13 +139,14 @@ function nucivic_data_dashboard_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -45,
     'customized' => 1,
   );
   // Translatables
   // Included for use with string extractors like potx.
   t('Content');
   t('Groups');
+  t('Profile');
   t('Profile Settings');
   t('Site Preferences');
   t('Visualizations');
