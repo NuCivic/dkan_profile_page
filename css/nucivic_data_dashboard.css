@@ -9,3 +9,34 @@
   margin-bottom: 0px;
   line-height: normal;
 }
+
+.block-nucivic-data-dashboard-user-summary
+.dashboard-nested-menu a {
+  position: relative;
+  display: block;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.block-nucivic-data-dashboard-user-summary
+.dashboard-nested-menu a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+
+.block-nucivic-data-dashboard-user-summary
+.dashboard-nested-menu {
+  padding: 0px;
+}
+
+.block-nucivic-data-dashboard-user-summary
+.dashboard-nested-menu li{
+  list-style: none;
+  font-size: 12px;
+}
+
+.block-nucivic-data-dashboard-user-summary
+.menu
+a:hover {
+  background-color: #eee !important;
+}

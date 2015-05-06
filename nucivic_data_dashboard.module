@@ -36,10 +36,10 @@ function nucivic_data_dashboard_block_view($delta = '') {
           'attributes' => array(),
         )
       );
-      $menu_data = menu_tree('menu-command-center-menu');
-      $menu_data = nucivic_data_dashboard_remove_profile_menu_item($menu_data);
-
+      $menu_data = menu_tree_all_data('menu-command-center-menu', NULL, 2);
+      $menu_data = menu_tree_output(nucivic_data_dashboard_remove_profile_menu_item($menu_data));
       $menu = drupal_render($menu_data);
+
       $html = theme('nucivic_data_dashboard_dashboard_user_summary', array(
           'num_groups' => nucivic_data_dashboard_count_by_type('group'),
           'num_dataset' => nucivic_data_dashboard_count_by_type('dataset'),
@@ -56,6 +56,9 @@ function nucivic_data_dashboard_block_view($delta = '') {
           'css' => array(
             drupal_get_path('module', 'nucivic_data_dashboard') . '/css/nucivic_data_dashboard.css',
           ),
+          'js' => array(
+            drupal_get_path('module', 'nucivic_data_dashboard') . '/js/nucivic_data_dashboard.js',
+          ),
         ),
       );
 
@@ -66,7 +69,7 @@ function nucivic_data_dashboard_block_view($delta = '') {
 
 function nucivic_data_dashboard_remove_profile_menu_item($menu_data){
   foreach ($menu_data as $key => $menu_item) {
-    if(isset($menu_item['#href']) && $menu_item['#href'] === 'user'){
+    if(isset($menu_item['link']['link_path']) && $menu_item['link']['link_path'] === 'user'){
       unset($menu_data[$key]);
     };
   }
