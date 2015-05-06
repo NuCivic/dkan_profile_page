@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * nucivic_data_dashboard.strongarm.inc
+ * dkan_profile_page.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function nucivic_data_dashboard_strongarm() {
+function dkan_profile_page_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

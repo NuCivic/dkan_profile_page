@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * nucivic_data_dashboard.features.menu_links.inc
+ * dkan_profile_page.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function nucivic_data_dashboard_menu_default_menu_links() {
+function dkan_profile_page_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: menu-command-center-menu_add-chart:admin/structure/entity-type/visualization/ve_chart/add
@@ -196,7 +196,7 @@ function nucivic_data_dashboard_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => FALSE,
+      'alter' => TRUE,
       'identifier' => 'menu-command-center-menu_profile-settings:menutoken/5547e8fd0c1a4',
     ),
     'module' => 'menu',

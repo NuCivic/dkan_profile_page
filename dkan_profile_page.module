@@ -4,16 +4,16 @@
  * Code for the NuCivic Data Dashboard feature.
  */
 
-include_once 'nucivic_data_dashboard.features.inc';
+include_once 'dkan_profile_page.features.inc';
 
 
 /**
  * Implements hook_block_info().
  */
-function nucivic_data_dashboard_block_info() {
+function dkan_profile_page_block_info() {
   $blocks = array();
-  $blocks['dashboard_user_summary'] = array(
-    'info' => t('Dashboard User Summary'),
+  $blocks['dkan_user_summary'] = array(
+    'info' => t('DKAN User Summary'),
   );
   return $blocks;
 }
@@ -21,13 +21,13 @@ function nucivic_data_dashboard_block_info() {
 /**
  * Implements hook_block_view().
  */
-function nucivic_data_dashboard_block_view($delta = '') {
+function dkan_profile_page_block_view($delta = '') {
   global $user;
   $block = array();
   $query = new EntityFieldQuery();
 
   switch($delta) {
-    case 'dashboard_user_summary':
+    case 'dkan_user_summary':
       $profile_picture = theme_image(
         array(
           'path' => gravatar_get_gravatar($user->mail),
@@ -37,12 +37,12 @@ function nucivic_data_dashboard_block_view($delta = '') {
         )
       );
       $menu_data = menu_tree_all_data('menu-command-center-menu', NULL, 2);
-      $menu_data = menu_tree_output(nucivic_data_dashboard_remove_profile_menu_item($menu_data));
+      $menu_data = menu_tree_output(dkan_profile_page_remove_profile_menu_item($menu_data));
       $menu = drupal_render($menu_data);
 
-      $html = theme('nucivic_data_dashboard_dashboard_user_summary', array(
-          'num_groups' => nucivic_data_dashboard_count_by_type('group'),
-          'num_dataset' => nucivic_data_dashboard_count_by_type('dataset'),
+      $html = theme('dkan_profile_page_dashboard_user_summary', array(
+          'num_groups' => dkan_profile_page_count_by_type('group'),
+          'num_dataset' => dkan_profile_page_count_by_type('dataset'),
           'name' => $user->name,
           'since' => format_date($user->created, 'custom', 'm/d/Y'),
           'profile_picture' => $profile_picture,
@@ -54,10 +54,10 @@ function nucivic_data_dashboard_block_view($delta = '') {
         '#markup' => $html,
         '#attached' => array(
           'css' => array(
-            drupal_get_path('module', 'nucivic_data_dashboard') . '/css/nucivic_data_dashboard.css',
+            drupal_get_path('module', 'dkan_profile_page') . '/css/dkan_profile_page.css',
           ),
           'js' => array(
-            drupal_get_path('module', 'nucivic_data_dashboard') . '/js/nucivic_data_dashboard.js',
+            drupal_get_path('module', 'dkan_profile_page') . '/js/dkan_profile_page.js',
           ),
         ),
       );
@@ -67,7 +67,7 @@ function nucivic_data_dashboard_block_view($delta = '') {
   return $block;
 }
 
-function nucivic_data_dashboard_remove_profile_menu_item($menu_data){
+function dkan_profile_page_remove_profile_menu_item($menu_data){
   foreach ($menu_data as $key => $menu_item) {
     if(isset($menu_item['link']['link_path']) && $menu_item['link']['link_path'] === 'user'){
       unset($menu_data[$key]);
@@ -80,7 +80,7 @@ function nucivic_data_dashboard_remove_profile_menu_item($menu_data){
  * Get number of nodes created by user
  * of a particular content type.
  */
-function nucivic_data_dashboard_count_by_type($type){
+function dkan_profile_page_count_by_type($type){
   global $user;
 
   $query = new EntityFieldQuery();
@@ -96,12 +96,12 @@ function nucivic_data_dashboard_count_by_type($type){
 /*
  * Implementation of hook_theme().
  */
-function nucivic_data_dashboard_theme() {
+function dkan_profile_page_theme() {
   return array(
-    'nucivic_data_dashboard_dashboard_user_summary' => array(
+    'dkan_profile_page_dashboard_user_summary' => array(
       'arguments' => array(),
-      'template' => 'nucivic_data_dashboard_dashboard_user_summary',
-      'path' => drupal_get_path('module', 'nucivic_data_dashboard'),
+      'template' => 'dkan_profile_page_dashboard_user_summary',
+      'path' => drupal_get_path('module', 'dkan_profile_page'),
     )
   );
 }

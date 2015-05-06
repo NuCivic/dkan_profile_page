@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * nucivic_data_dashboard.features.inc
+ * dkan_profile_page.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function nucivic_data_dashboard_ctools_plugin_api($module = NULL, $api = NULL) {
+function dkan_profile_page_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -19,6 +19,6 @@ function nucivic_data_dashboard_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function nucivic_data_dashboard_views_api($module = NULL, $api = NULL) {
+function dkan_profile_page_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }

@@ -1,7 +1,7 @@
-name = NuCivic Data Dashboard
+name = DKAN Profile Page
 description = Create a dashboard that improves the usability for non admin users.
 core = 7.x
-package = NUCIVIC
+package = DKAN
 dependencies[] = admin_menu
 dependencies[] = admin_menu_source
 dependencies[] = ctools
@@ -43,5 +43,5 @@ features[page_manager_handlers][] = user_view__panel_context_cd3bc8b2-8c44-4dd1-
 features[rules_config][] = rules_user_dashboard_page_after_login
 features[variable][] = admin_menu_source_settings
 features[views_view][] = admin_content
-mtime = 1430942771
+mtime = 1430948205
 project path = sites/all/modules/nucivic/

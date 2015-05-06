@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * nucivic_data_dashboard.views_default.inc
+ * dkan_profile_page.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function nucivic_data_dashboard_views_default_views() {
+function dkan_profile_page_views_default_views() {
   $export = array();
 
   $view = new view();
