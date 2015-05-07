@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dkan_profile_page.features.menu_custom.inc
+ * dkan_sitewide_profile_page.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function dkan_profile_page_menu_default_menu_custom() {
+function dkan_sitewide_profile_page_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: menu-command-center-menu.

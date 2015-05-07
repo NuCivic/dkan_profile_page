@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dkan_profile_page.pages_default.inc
+ * dkan_sitewide_profile_page.pages_default.inc
  */
 
 /**
  * Implements hook_default_page_manager_handlers().
  */
-function dkan_profile_page_default_page_manager_handlers() {
+function dkan_sitewide_profile_page_default_page_manager_handlers() {
   $export = array();
 
   $handler = new stdClass();
@@ -80,10 +80,10 @@ function dkan_profile_page_default_page_manager_handlers() {
     $display->content['new-bf8b8dff-2b1a-4595-84a4-ba8855c45bad'] = $pane;
     $display->panels['contentmain'][0] = 'new-bf8b8dff-2b1a-4595-84a4-ba8855c45bad';
     $pane = new stdClass();
-    $pane->pid = 'new-fba01f3c-f473-4b9e-a4cd-6934690cccad';
+    $pane->pid = 'new-a70d19c5-fd19-4979-8ccc-04c7ff2bc4a5';
     $pane->panel = 'sidebar';
     $pane->type = 'block';
-    $pane->subtype = 'dkan_profile_page-dashboard_user_summary';
+    $pane->subtype = 'dkan_sitewide_profile_page-dkan_user_summary';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -99,9 +99,9 @@ function dkan_profile_page_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'fba01f3c-f473-4b9e-a4cd-6934690cccad';
-    $display->content['new-fba01f3c-f473-4b9e-a4cd-6934690cccad'] = $pane;
-    $display->panels['sidebar'][0] = 'new-fba01f3c-f473-4b9e-a4cd-6934690cccad';
+    $pane->uuid = 'a70d19c5-fd19-4979-8ccc-04c7ff2bc4a5';
+    $display->content['new-a70d19c5-fd19-4979-8ccc-04c7ff2bc4a5'] = $pane;
+    $display->panels['sidebar'][0] = 'new-a70d19c5-fd19-4979-8ccc-04c7ff2bc4a5';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

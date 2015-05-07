@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dkan_profile_page.strongarm.inc
+ * dkan_sitewide_profile_page.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function dkan_profile_page_strongarm() {
+function dkan_sitewide_profile_page_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

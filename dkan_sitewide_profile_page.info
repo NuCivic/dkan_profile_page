@@ -43,5 +43,5 @@ features[page_manager_handlers][] = user_view__panel_context_cd3bc8b2-8c44-4dd1-
 features[rules_config][] = rules_user_dashboard_page_after_login
 features[variable][] = admin_menu_source_settings
 features[views_view][] = admin_content
-mtime = 1430948205
+mtime = 1430948305
 project path = sites/all/modules/nucivic/

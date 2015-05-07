@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dkan_profile_page.features.menu_links.inc
+ * dkan_sitewide_profile_page.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function dkan_profile_page_menu_default_menu_links() {
+function dkan_sitewide_profile_page_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: menu-command-center-menu_add-chart:admin/structure/entity-type/visualization/ve_chart/add

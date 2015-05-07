@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dkan_profile_page.views_default.inc
+ * dkan_sitewide_profile_page.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function dkan_profile_page_views_default_views() {
+function dkan_sitewide_profile_page_views_default_views() {
   $export = array();
 
   $view = new view();
